@@ -1,23 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { HashRouter as Router } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
+import Form from "./components/Form";
+import Home from "./components/Home";
+import FormCreator from "./components/FormCreator";
+import Register from "./components/Register";
+import NavBar from "./components/NavBar";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="container-fluid">
+      <Router>
+        <section>
+          <NavBar />
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/form" element={<Form />} />
+            <Route path="/builder" element={<FormCreator />} />
+            <Route path="/register" element={<Register />} />
+          </Routes>
+        </section>
+      </Router>
     </div>
   );
 }
